@@ -1,6 +1,6 @@
 from kivy.app import App
 from kivy.config import Config
-from kivy.uix.screenmanager import ScreenManager, Screen, FallOutTransition
+from kivy.uix.screenmanager import ScreenManager, Screen, FallOutTransition, SwapTransition
 from kivy.uix.button import Button
 from kivy.core.window import Window
 from kivy.uix.textinput import TextInput
