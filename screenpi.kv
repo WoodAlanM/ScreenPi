@@ -1,0 +1,281 @@
+ScreenManager:
+    MainScreen:
+    CalculatorScreen:
+
+<MainScreen>:
+    name: 'main'
+    MainGridLayout:
+
+<NotesScreen>:
+    name: 'notes'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        TextInput:
+            id: note_input
+            hint_text: "Type your note here..."
+            font_size: 24
+            multiline: True
+
+        Button:
+            text: "Save and Go Back"
+            size_hint_y: None
+            height: '48dp'
+            on_release:
+                app.change_screen('main')
+
+<CalculatorScreen>:
+    name: 'calculator'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        # Top Bar with Back Button
+        BoxLayout:
+            size_hint_y: 0.1
+            orientation: 'horizontal'
+            spacing: 10
+
+            Button:
+                text: 'Back'
+                background_color: app.get_color('#0000ff')
+                background_normal: ""
+                color: 1, 1, 1, 1
+                size_hint_x: 0.2
+                on_press: app.change_screen('main')
+
+            Label:
+                text: ''
+                size_hint_x: 0.8  # This ensures the Back Button stays on the left side
+
+        # Display Label
+        Label:
+            id: calc_display
+            text: "0"
+            font_size: 32
+            halign: 'right'
+            size_hint_y: 0.2
+            padding_x: 10
+
+        # Buttons Grid
+        GridLayout:
+            cols: 5
+            spacing: 10
+            size_hint_y: 0.7
+
+            # First Row
+            Button:
+                text: "C"
+                background_color: app.get_color('#ff8787')
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_clear(self)
+            Button:
+                text: "CE"
+                background_color: app.get_color('#ff8787')
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_clear_entry(self)
+            Button:
+                text: "("
+                background_color: app.get_color('#ffab3d')
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: ")"
+                background_color: app.get_color('#ffab3d')
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "mod"
+                background_color: app.get_color('#93ff8a')
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+
+            # Second Row
+            Button:
+                text: "7"
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "8"
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "9"
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "÷"
+                background_color: 1, 1, 0, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "√"
+                background_color: app.get_color('#93ff8a')
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+
+            # Third Row
+            Button:
+                text: "4"
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "5"
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "6"
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "*"
+                background_color: 1, 1, 0, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "x²"
+                background_color: app.get_color('#93ff8a')
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+
+            # Fourth Row
+            Button:
+                text: "1"
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "2"
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "3"
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "-"
+                background_color: 1, 1, 0, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "xⁿ"
+                background_color: app.get_color('#93ff8a')
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+
+            # Fifth Row
+            Button:
+                text: "0"
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "."
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "+/-"
+                background_color: 1, 1, 1, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "+"
+                background_color: 1, 1, 0, 1
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+            Button:
+                text: "="
+                background_color: app.get_color('#8ab9ff')
+                background_normal: ""
+                color: 0, 0, 0, 1
+                on_press: app.on_button_press(self)
+
+<MainGridLayout@GridLayout>:
+    cols: 2
+    padding: [25, 25, 25, 25]
+    spacing: [50, 50]
+    Button:
+        text: "Calculator"
+        background_color: app.get_color('#8282ff')
+        background_normal: ""
+        color: 0, 0, 0, 1
+        font_size: 24
+        font_name: "Roboto-Bold.ttf"
+        on_touch_up: app.root.current= "calculator"
+    Button:
+        text: "Notes"  # Replace Button B with this
+        background_color: app.get_color('#8282ff')
+        background_normal: ""
+        color: 0, 0, 0, 1
+        font_size: 24
+        font_name: "Roboto-Bold.ttf"
+        on_touch_up: app.root.current = "notes"
+    Button:
+        text: "C"
+        background_color: app.get_color('#8282ff')
+        background_normal: ""
+        color: 0, 0, 0, 1
+        font_size: 24
+        font_name: "Roboto-Bold.ttf"
+        on_touch_up: app.root.current = 'calculator'
+    Button:
+        text: "D"
+        background_color: app.get_color('#8282ff')
+        background_normal: ""
+        color: 0, 0, 0, 1
+        font_size: 24
+        font_name: "Roboto-Bold.ttf"
+        on_touch_up: app.root.current = 'calculator'
+    Button:
+        text: "E"
+        background_color: app.get_color('#8282ff')
+        background_normal: ""
+        color: 0, 0, 0, 1
+        font_size: 24
+        font_name: "Roboto-Bold.ttf"
+        on_touch_up: app.root.current = 'calculator'
+    Button:
+        text: "F"
+        background_color: app.get_color('#8282ff')
+        background_normal: ""
+        color: 0, 0, 0, 1
+        font_size: 24
+        font_name: "Roboto-Bold.ttf"
+        on_touch_up: app.root.current = 'calculator'
+    
